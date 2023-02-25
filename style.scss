@@ -1,0 +1,51 @@
+@import "compass/css3";
+
+/// Mixin to place items on a circle
+/// @param {Integer} $item-count - Number of items on the circle
+/// @param {Length} $circle-size - Large circle size
+/// @param {Length} $item-size - Single item size
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  position: relative;
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  padding: 0;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -($item-size / 2);
+    width: $item-size;
+    height: $item-size;
+
+    $angle: (360 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        box-shadow: 0 0px 20px 1px yellow;
+        transform: rotate($rot * 1deg)
+          translate($circle-size / 2.1)
+          rotate($rot * -1deg);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}
+
+.circle-container {
+  @include on-circle($item-count: 8, $circle-size: 20em, $item-size: 2em);
+  margin: 5em auto 0;
+  border: 15px solid tomato;
+  box-sizing: border-box;
+  li {
+    display: block;
+    border-radius: 50%;
+    background: radial-gradient(#fff17a, #ffce3a);
+    transition: 0.15s;
+  }
+}
