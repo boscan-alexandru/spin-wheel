@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://influendoo.com/images/github_alex_boscan/github_alex_boscan_cover2.jpg" alt="Alex Boscan Spin Wheel">
+  <img src="https://raw.githubusercontent.com/boscan-alexandru/spin-wheel/main/wheel_component.png" alt="Alex Boscan Spin Wheel">
 </p>
 
 # Spin Wheel
